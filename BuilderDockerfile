@@ -1,0 +1,57 @@
+ARG BUILD_ROOT=/root
+ARG BUILD_OUTPUT_DIR=${BUILD_ROOT}/solana-output
+ARG SOLANA_VERSION=1.18.17
+ARG RUST_VERSION=1.76
+ARG ANCHOR_VERSION=0.30.1
+
+
+
+FROM base as builder
+
+SHELL [ "/bin/bash", "-c" ]
+
+ARG BUILD_ROOT
+ARG BUILD_OUTPUT_DIR
+ARG SOLANA_VERSION
+ARG RUST_VERSION
+ARG ANCHOR_VERSION
+ENV RUST_STABLE_VERSION=${RUST_VERSION}
+
+RUN apt update && \
+    apt-get install -y \
+    build-essential \
+    libssl-dev libudev-dev clang \
+    gcc zlib1g-dev llvm cmake make \
+    libprotobuf-dev protobuf-compiler \
+    perl libfindbin-libs-perl \
+    && \
+    rm -rf /var/lib/apt/lists/*
+
+# Fetch solana source code
+WORKDIR ${BUILD_ROOT}
+RUN wget -O solana.tar.gz \
+            https://github.com/solana-labs/solana/archive/refs/tags/v${SOLANA_VERSION}.tar.gz
+RUN mkdir solana && \
+    tar --extract --verbose --gzip --file solana.tar.gz --strip-components=1 --directory solana
+
+# Setup rust with compatible version
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain "${RUST_VERSION}"
+ENV PATH=${BUILD_ROOT}/.cargo/bin:$PATH
+RUN rustup install ${RUST_VERSION}
+RUN rustup default ${RUST_VERSION}
+ENV PATH=${BUILD_ROOT}/.cargo/bin:$PATH
+RUN rustc --version
+
+# Build Solana binaries
+WORKDIR ${BUILD_ROOT}/solana
+RUN ./scripts/cargo-install-all.sh "${BUILD_OUTPUT_DIR}"
+
+RUN cargo "+${RUST_VERSION}" build --bin solana-test-validator --release
+RUN cd "${BUILD_OUTPUT_DIR}/bin" && "${BUILD_ROOT}/solana/fetch-spl.sh"
+RUN cp -f scripts/run.sh "${BUILD_OUTPUT_DIR}/bin/run-cluster"
+RUN cp -f fetch-spl.sh "${BUILD_OUTPUT_DIR}/bin/"
+RUN cp -f target/release/solana-test-validator "${BUILD_OUTPUT_DIR}/bin/"
+
+# Install Anchor
+RUN cargo install --git https://github.com/coral-xyz/anchor --tag v$ANCHOR_VERSION anchor-cli --locked
+RUN anchor --version

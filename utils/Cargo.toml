@@ -1,0 +1,21 @@
+[package]
+name = "utils"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+localnet = []
+devnet = []
+
+[dependencies]
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+solana-program = "1.18.17"
+spl-associated-token-account = { version = "3.0.2", features = ["no-entrypoint"] }
+spl-token = { version = "4.0.0", features = ["no-entrypoint"] }
+num-derive = "0.4.2"
+num-traits = "0.2.19"
+num = "0.2.1"
+derive_more = "0.99.11"
+# Needs to be included like this to prevent conflict with anchor's internal borsh version.
+original_borsh = { version = "1.5.1", package = "borsh" }

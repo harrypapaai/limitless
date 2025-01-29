@@ -1,0 +1,33 @@
+[package]
+name = "cli"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = []
+localnet = ["utils/localnet", "tutils/localnet", "limitless/localnet"]
+devnet = ["utils/devnet", "tutils/devnet", "limitless/devnet"]
+
+[dependencies]
+borsh = "1.5.1"
+clap = { version = "3.2.23"}
+solana-client = "1.18.17"
+solana-sdk = "1.18.17"
+solana-clap-v3-utils = "1.18.17"
+solana-program = "1.18.17"
+tokio = { version = "1.28", features = ["full"] }
+spl-associated-token-account = { version = "3.0.2", features = ["no-entrypoint"] }
+spl-token = { version = "4.0.0", features = ["no-entrypoint"] }
+bincode = "1.3.3"
+tutils = { path = "../tests/tutils" }
+limitless = { path = "../programs/limitless", features = ["no-entrypoint"]}
+utils = { path = "../utils"}
+uuid = { version = "1.9.0", features = ["v4", "borsh"] }
+anchor-lang = { version = "0.30.1" }
+mpl-token-metadata = "4.1.2"
+serde_json = "1.0.117"
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1.0.203", features = ["derive"] }
+anchor-spl = { version = "0.30.1", features = ["metadata"] }
+solana-remote-wallet = { version = "1.18.17", features = ["hidapi"] }
+base58 = "0.2.0"

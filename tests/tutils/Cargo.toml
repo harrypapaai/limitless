@@ -1,0 +1,34 @@
+[package]
+name = "tutils"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["lib"]
+name = "tutils"
+
+[features]
+localnet = ["utils/localnet"]
+devnet = ["utils/devnet"]
+
+[dependencies]
+spl-token = { version = "4.0.0", features = ["no-entrypoint"] }
+spl-associated-token-account = { version = "3.0.2", features = ["no-entrypoint"] }
+spl-memo = { version = "4.0.0", features = ["no-entrypoint"] }
+solana-program = "1.18.17"
+anyhow = "1.0.53"
+ahash = ">=0.8.7"
+borsh = "1.5.1"
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+anchor-spl = { version = "0.30.1", features = ["metadata"] }
+mpl-token-metadata = "4.1.2"
+derive_more = "0.99.11"
+num = "0.2.1"
+uuid = { version = "1.9.0", features = ["v4", "borsh"] }
+num-derive = "0.4.2"
+num-traits = "0.2.19"
+solana-program-test = "1.18.17"
+solana-client = "1.18.17"
+solana-sdk = "1.18.17"
+solana-program-runtime = "1.18.17"
+utils = { path = "../../utils" }

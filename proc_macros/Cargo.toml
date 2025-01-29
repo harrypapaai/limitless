@@ -1,0 +1,13 @@
+[package]
+name = "blackwing_proc_macros"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+syn = "1.0"
+quote = "1.0"
+proc-macro2 = "1.0"
+anchor-syn = "0.30.1"
+
+[lib]
+proc-macro = true

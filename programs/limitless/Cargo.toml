@@ -1,0 +1,40 @@
+[package]
+name = "limitless"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "limitless"
+
+[features]
+default = []
+localnet = ["utils/localnet", "tutils/localnet"]
+devnet = ["utils/devnet", "tutils/devnet"]
+no-entrypoint = []
+
+[dependencies]
+spl-token = { version = "4.0.0", features = ["no-entrypoint"] }
+spl-associated-token-account = { version = "3.0.2", features = ["no-entrypoint"] }
+spl-memo = { version = "4.0.0", features = ["no-entrypoint"] }
+solana-program = "1.18.17"
+ahash = ">=0.8.7"
+borsh = "1.5.1"
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+anchor-spl = { version = "0.30.1", features = ["metadata"] }
+mpl-token-metadata = "4.1.2"
+derive_more = "0.99.11"
+num = "0.2.1"
+uuid = { version = "1.9.0", features = ["v4", "borsh"] }
+blackwing_proc_macros = { path = "../../proc_macros" }
+num-derive = "0.4.2"
+num-traits = "0.2.19"
+utils = { path = "../../utils" }
+
+[dev-dependencies]
+rand = "0.8.5"
+solana-program-test = "1.18.17"
+solana-client = "1.18.17"
+solana-sdk = "1.18.17"
+solana-program-runtime = "1.18.17"
+tutils = { path = "../../tests/tutils" }
